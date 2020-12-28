@@ -1,0 +1,71 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" /> 
+    <title>Js Game</title>
+</head>
+<body>
+    <header>
+        Guess the Word Game 
+    </header>
+    <section>
+        <div class="gameArea">
+            <h3 class="msg"></h3>
+        <input type="text" class="hidden" />
+        <button type="button" class="Btn">Click Here to Start</button>
+        </div>
+    </section>
+    <script>
+        const msg = document.querySelector(".msg");
+        const guess = document.querySelector("input");
+        const btn = document.querySelector(".btn");
+        let play = false;
+        let newWords = "";
+        let randWord = "";
+        let arrWords = ["Ayyan","Ashna","Aiza","Ayesha","Amir","Nasira","Saba","Alisha","Husnain","Asmara","Ali","Zunaira","Sunny"];
+        const createWords = () => {
+            let randomNo = Math.floor(Math.random() * arrWords.length);
+            // console.log(randomNo);
+            let newTempWord =arrWords[randomNo];
+            // console.log(newTempWord.split(""));
+            return newTempWord;
+        }
+        const scrambleWord = (arr)=> {
+            for (let i = arr.length-1 ; i > 0 ; i--){
+            let temp = arr[i];
+            // console.log(temp);
+            let j = Math.floor(Math.random()*(i+1));
+            // console.log(i);
+            // console.log(j);
+            arr[i] = arr[j];
+            arr[j] = temp;    
+            }
+            return arr; 
+        }
+
+        btn.addEventListener("click", function(){
+            if(!play){
+                play = true;
+                btn.innerHTML = "Guess";
+                guess.classList.toggle("hidden");
+                newWords = createWords(); 
+                randWord = scrambleWord(newWords.split("")).join();
+                console.log(randWord)
+                msg.innerHTML = `Guess the Word : ${randWord}`;
+            }else{
+                let tempWord = guess.value;
+                if(tempWord === newWords){
+                    play = false;
+                    msg.innerHTML = `Awesome it is Correct . it is ${newWords}`;
+                    btn.innerHTML = `start Again`;
+                    guess.classList.toggle("hidden");
+                    guess.value =("");
+                }else{
+                    msg.innerHTML = `Sorry Boss ! it is inCorrect : ${randWord} `;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

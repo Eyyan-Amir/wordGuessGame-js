@@ -1,0 +1,78 @@
+*{
+    margin: 0%;padding: 0%;box-sizing: border-box;font-family: 'josefin', cursive;
+}
+header{
+    height: 15vh;
+    width: 100vw;
+    background-color:rgb(50, 168, 82);
+    color: white;
+    font-size: 3rem;
+    text-align: center;
+    line-height: 2.4ch;
+    text-shadow:  0 1px 0 #efefef,
+                  0 2px 0 #efefef,
+                  0 3px 0 #efefef,
+                  0 4px 0 #efefef,
+                  0 30px 5px rgba( 0,0,0, .1);
+    text-transform: capitalize;
+}
+section{
+    width: 100vw;
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(105, 250, 144)
+}
+.gameArea{
+    width: 50%;
+    height: 70%;
+    padding: 20px 0;
+    background-color: #2ed573;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 8px 10px -6px black;
+}
+h3{
+    text-align: center;
+    font-size: 1.5rem;
+}
+input{
+    width: 30%;
+    height: 10%;
+    padding: 15px 0;
+    border-radius: 25px;    
+    border: none;
+    outline: none;
+    background-color: #dff9fb;
+    color: black;
+    margin:  2rem 0;
+    font-size: 1.1rem;
+}
+button{
+    font-size: 1rem;
+    outline: none;
+    border: #2f3542;
+    text-decoration: none;
+    margin-top: 10px;
+    cursor: pointer;
+    color: #eb4d4b;
+}
+button.btn{
+    font-weight: 600;
+    padding : 1rem 2rem;
+    background: white;
+    text-transform: uppercase;
+    transition-property: all;
+    transition-duration: .5s;
+    transition-timing-function: cubic-bezier(0.65, -0.25, 0.25, 1.95);
+}
+button.btn:hover , button.btn:focus ,button.btn:active {
+    letter-spacing: 0.225 rem;
+    word-spacing: 0.6rem;
+}
+.hidden{
+    display: none;
+}
